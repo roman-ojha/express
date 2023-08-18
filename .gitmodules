@@ -1,0 +1,3 @@
+[submodule "Examples/message_app"]
+	path = Examples/message_app
+	url = git@github.com:roman-ojha/chat-app-example.git
