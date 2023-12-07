@@ -52,7 +52,16 @@ app.get("/about", (req, res) => {
     username: req.query.name,
   });
 });
+
 app.get("/contact", (req, res) => {
+  res.render("Class_08_contact", {
+    username: req.query.name,
+  });
+});
+
+app.get("/contact/*", (req, res) => {
+  // '/content/multiple/path/you/can/use' and then get 'multiple/path/you/can/use' inside 'req.params['0'];
+  console.log(req.params["0"]);
   res.render("Class_08_contact", {
     username: req.query.name,
   });

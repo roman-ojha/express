@@ -32,7 +32,29 @@ app.get("/about", (req, res) => {
 app.get("/contact", (req, res) => {
   res.render("Class_08_contact");
 });
+
+// Router Parameter by placing a colon ':' in front of the parameter name in the route's path
+app.get("/users/:userId", (req, res) => {
+  const userId = req.params.userId;
+  res.send(`User ID: ${userId}`);
+});
+
+// you can make parameter optional by adding a ? after it
+app.get("/products/:productId?", (req, res) => {
+  const productId = req.params.productId || "No product specified";
+  res.send(`Product ID: ${productId}`);
+});
+
+// Regular Expression:
+// You can use regular expression to define more complex route patterns
+app.get(/\/users\/(\d+)/, (req, res) => {
+  const userId = req.params[0] || "No user specified";
+  res.send(`User ID: ${userId}`);
+});
 // when all of those upper wirten root or path which doesn't match for the user who search it then automatically now serch result will go to '*' path
+
+// Wildcard Routes:
+// You can use a wildcard '*' to match multiple route segments
 
 app.get("/about/*", (req, res) => {
   // now here if user go inside the about page and after that go to the page which doesn't exit then this will impleiment
